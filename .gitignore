@@ -43,11 +43,6 @@ ExportedObj/
 *.opendb
 *.VC.db
 
-# Unity3D generated meta files
-*.pidb.meta
-*.pdb.meta
-*.mdb.meta
-
 # Unity3D generated file on crash reports
 sysinfo.txt
 
@@ -57,8 +52,6 @@ sysinfo.txt
 
 # Crashlytics generated file
 crashlytics-build.properties
-
-*.meta
 Assets/TextMesh Pro/Sprites/EmojiOne.png
 Assets/TextMesh Pro/Sprites/EmojiOne.json
 Assets/TextMesh Pro/Sprites/EmojiOne Attribution.txt
