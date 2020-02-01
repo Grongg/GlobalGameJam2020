@@ -67,6 +67,7 @@ public class PlayerController : MonoBehaviour
                     state = 1;
                     anim.SetBool("is_moving", false);
                     anim.SetBool("is_fireing", true);
+                    machineGun.GetComponent<MachineGunScript>().control = true;
                 }
                 else if (radarCollider.bounds.Contains(transform.position + sprite.transform.TransformDirection(Vector3.right) * 0.7f))
                 {
@@ -81,6 +82,7 @@ public class PlayerController : MonoBehaviour
                     anim.SetBool("is_repairing", true);
                 }
             } else if (state != 0) {
+                machineGun.GetComponent<MachineGunScript>().control = false;
                 anim.SetBool("is_repairing", false);
                 anim.SetBool("is_fireing", false);
                 state = 0;
