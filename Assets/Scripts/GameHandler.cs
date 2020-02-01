@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class GameHandler : MonoBehaviour
 {
-    [SerializeField] private HealthBar healthBar;
+    public HealthBar healthBar;
     void Start()
     {
         healthBar.setSize(1f);

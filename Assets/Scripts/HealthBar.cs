@@ -9,15 +9,18 @@ public class HealthBar : MonoBehaviour
 
     public Transform bar;
     public TextMeshProUGUI txtHealth;
-    private float currentHealth = 100f;
+    private float startingHealth = 100;
+    private float currentHealth;
     private void Start()
     {
+        currentHealth = startingHealth;
+        displayHealth();
         bar = transform.Find("Bar");
     }
 
     public void setSize(float sizeNormalized)
     {
-        bar.localScale = new Vector3(sizeNormalized, .5f);
+        bar.localScale = new Vector3(sizeNormalized, .54f);
     }
 
     public void setColor (Color color)
@@ -51,9 +54,9 @@ public class HealthBar : MonoBehaviour
         }
         else
         {
-            if (currentHealth <= 25f)
-                setColor(Color.red);
             setHealth(currentHealth - dmg);
+            if (currentHealth <= (startingHealth * 0.25))
+                setColor(Color.red);
         }
     }
 }
