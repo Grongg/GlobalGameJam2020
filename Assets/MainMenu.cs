@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
-
+    
     public void PlayGame() // Fonction that is attached to the PlayButton to load the game scene
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
