@@ -15,12 +15,15 @@ public class PlayerController : MonoBehaviour
     private float actualSpeed = 0;
     private CharacterController controller;
     private int state = 0; // 0 for wallking, 1 for turret, 2 for repairing ....
+    private BoxCollider componentCollider;
 
     void Start()
     {
         sprite = this.gameObject.transform.GetChild(0).gameObject;
         anim = sprite.GetComponent<Animator>();
         controller = GetComponent<CharacterController>();
+        componentCollider = component.GetComponent<BoxCollider>();
+        Debug.Log("Coord component" + component.transform.position);
     }
 
     void Update()
@@ -43,10 +46,17 @@ public class PlayerController : MonoBehaviour
                 anim.SetBool("is_moving", false);
             }
         }
-        if (Input.GetButton("Fire2") && state == 0) {
-            /*if (transform.position + moveDirection)*/
-        } else if (Input.GetButton("Fire2")) {
-            state = 0;
+        if (Input.GetButtonDown("Fire2")) {
+            if (state == 0) {
+                if (componentCollider.bounds.Contains(transform.position + sprite.transform.TransformDirection(Vector3.right) * 0.7f)) {
+                    state = 2;
+                    anim.SetBool("is_moving", false);
+                    anim.SetBool("is_repairing", true);
+                }
+            } else if (state != 0) {
+                anim.SetBool("is_repairing", false);
+                state = 0;
+            }
         }
     }
 }
