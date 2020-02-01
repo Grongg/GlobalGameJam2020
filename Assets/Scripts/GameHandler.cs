@@ -15,7 +15,6 @@ public class GameHandler : MonoBehaviour
     }
     void Update()
     {
-        healthBar.doDamage(10);
     }
 }
  
