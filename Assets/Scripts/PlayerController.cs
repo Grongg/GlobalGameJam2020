@@ -12,6 +12,7 @@ public class PlayerController : MonoBehaviour
     public GameObject radar;
     public GameObject reactor;
     public HealthBar HealthBar;
+    public HealthBar RepairBar;
 
     private Vector2 moveDirection;
     private GameObject sprite;
@@ -30,22 +31,28 @@ public class PlayerController : MonoBehaviour
         anim = sprite.GetComponent<Animator>();
         controller = GetComponent<CharacterController>();
         hullCollider = hull.GetComponent<BoxCollider>();
+        reactorCollider = reactor.GetComponent<BoxCollider>();
 //        machineGunCollider = machineGun.GetComponent<SphereCollider>();
 //        radarCollider = radar.GetComponent<BoxCollider>();
-//        reactorCollider = reactor.GetComponent<BoxCollider>();
     }
 
     void repairShield()
     {
         if (HealthBar.currentHealth == 100)
             return;
-        HealthBar.currentHealth += 1 * Time.deltaTime;
+        HealthBar.currentHealth += 1f * Time.deltaTime;
         HealthBar.displayHealth();
         HealthBar.setSize(HealthBar.currentHealth * 0.01f);
         if (HealthBar.currentHealth >= (HealthBar.startingHealth * 0.25))
                 HealthBar.setColor(Color.green);
     }
 
+    void repairEngine()
+    {
+        RepairBar.currentHealth += 1f * Time.deltaTime;
+        RepairBar.displayHealth();
+        RepairBar.setSize(RepairBar.currentHealth * 0.01f);
+    }
     void Update()
     {
         if (Input.GetAxis("Horizontal") != 0 && Input.GetAxis("Vertical") != 0)
@@ -63,6 +70,8 @@ public class PlayerController : MonoBehaviour
         }
         else if (state == 2)
             repairShield();
+        else if (state == 4)
+            repairEngine();
         if (Input.GetButtonDown("Fire2")) {
             if (state == 0) {
                 if (hullCollider.bounds.Contains(transform.position + sprite.transform.TransformDirection(Vector3.right) * 0.7f))
@@ -84,17 +93,19 @@ public class PlayerController : MonoBehaviour
                     state = 3;
                     anim.SetBool("is_moving", false);
                     anim.SetBool("is_repairing", true);
-                }
+                }*/
                 else if (reactorCollider.bounds.Contains(transform.position + sprite.transform.TransformDirection(Vector3.right) * 0.7f))
                 {
                     state = 4;
                     anim.SetBool("is_moving", false);
                     anim.SetBool("is_repairing", true);
-                }*/
+                    RepairBar.shieldRepair.Play(0);
+                }
             } else if (state != 0) {
 //                machineGun.GetComponent<MachineGunScript>().control = false;
                 anim.SetBool("is_repairing", false);
                 HealthBar.shieldRepair.Stop();
+                RepairBar.shieldRepair.Stop();
 //                anim.SetBool("is_fireing", false);
                 state = 0;
             }
