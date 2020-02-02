@@ -9,11 +9,13 @@ public class MonsterSpawner : MonoBehaviour
     int rdmSpawn, rdmMonster;
     float spawnSpeed;
     public static bool spawnAllowed;
+    public float time;
     // Start is called before the first frame update
     void Start()
     {
         spawnSpeed = 4f;
         spawnAllowed = true;
+        time = Time.time;
     }
 
     void SpawnMonster()
@@ -26,12 +28,18 @@ public class MonsterSpawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (spawnAllowed)
+        if (spawnAllowed && Time.time - time > 30)
         {
             spawnAllowed = false;
             Invoke("SpawnMonster", spawnSpeed);
             if (spawnSpeed > 0.3f)
                 spawnSpeed -= 0.1f;
+        }
+        Debug.Log(Time.time - time);
+        if (Time.time - time > 40)
+        {
+            Debug.Log("Hehehe....");
+            time = Time.time;
         }
     }
 }
