@@ -6,7 +6,6 @@ public class ShieldHandler : MonoBehaviour
 {
     private AudioSource shieldDamaged;
     public HealthBar healthBar;
-    public HealthBar repairBar;
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Monster")
