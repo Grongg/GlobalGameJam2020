@@ -16,7 +16,6 @@ public class EndGame : MonoBehaviour
     {
         if (DataCollector.State == true)
         {
-            statetxt.text = 
             statetxt.text = "You Win and escaped!";
         }
         else
