@@ -1149,6 +1149,16 @@ PrefabInstance:
       propertyPath: up
       value: 
       objectReference: {fileID: 915234773}
+    - target: {fileID: 3679488830885429360, guid: 20f57bef584e0904e9686413020fdd15,
+        type: 3}
+      propertyPath: upBar
+      value: 
+      objectReference: {fileID: 1627842987}
+    - target: {fileID: 3679488830885429360, guid: 20f57bef584e0904e9686413020fdd15,
+        type: 3}
+      propertyPath: score
+      value: 
+      objectReference: {fileID: 711115472}
     - target: {fileID: 3679488830885429361, guid: 20f57bef584e0904e9686413020fdd15,
         type: 3}
       propertyPath: m_Name
@@ -2177,6 +2187,7 @@ MonoBehaviour:
   firepoint: {fileID: 213817764}
   bulletPrefab: {fileID: 1517256012}
   bulletForce: 20
+  timer: 0
   can_fire: 0
 --- !u!114 &668934479
 MonoBehaviour:

@@ -15,6 +15,8 @@ public class PlayerController : MonoBehaviour
     public GameObject machineGunColl;
     public HealthBar HealthBar;
     public HealthBar RepairBar;
+    public UpgradeBar upBar;
+    public ScoreHandler score;
 
     private Vector2 moveDirection;
     private GameObject sprite;
@@ -26,6 +28,7 @@ public class PlayerController : MonoBehaviour
     private BoxCollider machineGunCollider;
     private BoxCollider upCollider;
     private BoxCollider reactorCollider;
+    private float timer = 0f;
 
     void Start()
     {
@@ -36,6 +39,8 @@ public class PlayerController : MonoBehaviour
         reactorCollider = reactor.GetComponent<BoxCollider>();
         machineGunCollider = machineGunColl.GetComponent<BoxCollider>();
         upCollider = up.GetComponent<BoxCollider>();
+        if (DataCollector.Score == 0)
+            upBar.setInitSize();
     }
 
     void repairShield()
@@ -90,7 +95,7 @@ public class PlayerController : MonoBehaviour
                 }
                 else if (machineGunCollider.bounds.Contains(transform.position + sprite.transform.TransformDirection(Vector3.right) * 0.7f))
                 {
-                    Debug.Log("aoierhg");
+                    //Debug.Log("aoierhg");
                     state = 1;
                     anim.SetBool("is_moving", false);
                     anim.SetBool("is_fireing", true);
@@ -99,9 +104,36 @@ public class PlayerController : MonoBehaviour
                 }
                 else if (upCollider.bounds.Contains(transform.position + sprite.transform.TransformDirection(Vector3.right) * 0.7f))
                 {
-                    state = 3;
-                    anim.SetBool("is_moving", false);
-                    anim.SetBool("is_repairing", true);
+                    Debug.Log(DataCollector.Score);
+                    Debug.Log(upBar.getCurrentUpgrade());
+                    if (score.getScore() >= 400 && upBar.getCurrentUpgrade() == 1)
+                    {
+                        score.setScore(score.getScore() - 400);
+                        state = 5;
+                        anim.SetBool("is_moving", false);
+                        anim.SetBool("is_repairing", true);
+                    }
+                    else if (score.getScore() >= 1000 && upBar.getCurrentUpgrade() == 2)
+                    {
+                        score.setScore(score.getScore() - 1000);
+                        state = 5;
+                        anim.SetBool("is_moving", false);
+                        anim.SetBool("is_repairing", true);
+                    }
+                    else if (score.getScore() >= 2000 && upBar.getCurrentUpgrade() == 3)
+                    {
+                        score.setScore(score.getScore() - 2000);
+                        state = 5;
+                        anim.SetBool("is_moving", false);
+                        anim.SetBool("is_repairing", true);
+                    }
+                    else if (score.getScore() >= 4500 && upBar.getCurrentUpgrade() == 4)
+                    {
+                        score.setScore(score.getScore() - 4500);
+                        state = 5;
+                        anim.SetBool("is_moving", false);
+                        anim.SetBool("is_repairing", true);
+                    }
                 }
                 else if (reactorCollider.bounds.Contains(transform.position + sprite.transform.TransformDirection(Vector3.right) * 0.7f))
                 {
@@ -117,11 +149,23 @@ public class PlayerController : MonoBehaviour
                 anim.SetBool("is_fireing", false);
                 state = 0;
             }
-            else if (state != 0) {
+            else if (state != 0 && state != 5) {
                 anim.SetBool("is_repairing", false);
                 HealthBar.shieldRepair.Stop();
                 RepairBar.shieldRepair.Stop();
                 state = 0;
+            }
+        }
+        if (state == 5)
+        {
+            timer += Time.deltaTime;
+            Debug.Log(timer);
+            if (timer >= 4)
+            {
+                state = 0;
+                anim.SetBool("is_repairing", false);
+                timer = 0;
+                upBar.upgrade();
             }
         }
     }
