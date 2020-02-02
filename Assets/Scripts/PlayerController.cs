@@ -38,7 +38,7 @@ public class PlayerController : MonoBehaviour
 
     void repairShield()
     {
-        if (HealthBar.currentHealth == 100)
+        if (HealthBar.currentHealth >= 100)
             return;
         HealthBar.currentHealth += 1f * Time.deltaTime;
         HealthBar.displayHealth();
