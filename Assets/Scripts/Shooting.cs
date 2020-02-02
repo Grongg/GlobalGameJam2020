@@ -9,18 +9,28 @@ public class Shooting : MonoBehaviour
     public GameObject bulletPrefab;
     private AudioSource shootSound;
     public float bulletForce = 20f;
+    public float timer;
+    private bool bulletup;
 
     public bool can_fire = false;
 
     void Start() 
     {
         shootSound = GetComponent<AudioSource>();
+        timer = Time.time;
+        bulletup = true;
     }
     void Update()
     {
-        if (can_fire && Input.GetButtonDown("Fire1"))
+        if (can_fire && Input.GetButton("Fire1") && bulletup)
         {
             Shoot();
+            bulletup = false;
+        }
+        if (Time.time - timer > 0.1)
+        {
+            timer = Time.time;
+            bulletup = true;
         }
     }
 
