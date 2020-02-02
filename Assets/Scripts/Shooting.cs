@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+
 using System.Collections.Generic;
 using UnityEngine;
 using System;
@@ -11,6 +12,7 @@ public class Shooting : MonoBehaviour
     public float bulletForce = 20f;
     public float timer;
     private bool bulletup;
+    public float firerate;
 
     public bool can_fire = false;
 
@@ -19,6 +21,7 @@ public class Shooting : MonoBehaviour
         shootSound = GetComponent<AudioSource>();
         timer = Time.time;
         bulletup = true;
+        firerate = 0.4f;
     }
     void Update()
     {
@@ -27,7 +30,7 @@ public class Shooting : MonoBehaviour
             Shoot();
             bulletup = false;
         }
-        if (Time.time - timer > 0.1)
+        if (Time.time - timer > firerate)
         {
             timer = Time.time;
             bulletup = true;
