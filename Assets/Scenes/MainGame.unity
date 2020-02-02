@@ -2020,6 +2020,31 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &621234895 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4021740091093475585, guid: f6082fa0c1b9bbb42a2e0b80b6e7d0d5,
+    type: 3}
+  m_PrefabInstance: {fileID: 4021740092343814382}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &621234897
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 621234895}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ded5508e50ca1504597c4008bd1aa667, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &622155737
 GameObject:
   m_ObjectHideFlags: 0
@@ -2177,6 +2202,7 @@ MonoBehaviour:
   firepoint: {fileID: 213817764}
   bulletPrefab: {fileID: 1517256012}
   bulletForce: 20
+  timer: 0
   can_fire: 0
 --- !u!114 &668934479
 MonoBehaviour:
@@ -5595,6 +5621,16 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 7.35
       objectReference: {fileID: 0}
+    - target: {fileID: 4021740091153605753, guid: f6082fa0c1b9bbb42a2e0b80b6e7d0d5,
+        type: 3}
+      propertyPath: shield
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4021740091153605753, guid: f6082fa0c1b9bbb42a2e0b80b6e7d0d5,
+        type: 3}
+      propertyPath: anim
+      value: 
+      objectReference: {fileID: 621234897}
     - target: {fileID: 4021740091526763112, guid: f6082fa0c1b9bbb42a2e0b80b6e7d0d5,
         type: 3}
       propertyPath: Loop

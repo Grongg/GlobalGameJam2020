@@ -14,6 +14,8 @@ public class HealthBar : MonoBehaviour
     public float currentHealth;
     private float maxHealth = 100;
     public bool repairMode;
+    public Animator anim;
+
     private void Start()
     {
         shieldRepair = GetComponent<AudioSource>();
@@ -45,6 +47,7 @@ public class HealthBar : MonoBehaviour
         currentHealth = health;
         displayHealth();
         setSize(health * 0.01f);
+        anim.SetFloat("HP", health);
     }
 
     public void displayHealth()
