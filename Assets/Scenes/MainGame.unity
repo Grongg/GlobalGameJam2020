@@ -594,6 +594,7 @@ MonoBehaviour:
   - {fileID: 885039973}
   monsters:
   - {fileID: 2122383180}
+  time: 0
 --- !u!4 &62214948
 Transform:
   m_ObjectHideFlags: 0
@@ -5342,6 +5343,25 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 5832902604545193304}
   m_PrefabAsset: {fileID: 0}
+--- !u!95 &2122383181
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2122383180}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 1ff3449b065d5954a95114c6c4e07c59, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!82 &2122383186
 AudioSource:
   m_ObjectHideFlags: 0
