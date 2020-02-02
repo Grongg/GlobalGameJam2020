@@ -10,7 +10,7 @@ public class MonsterAI : MonoBehaviour
 
     void Start()
     {
-        speed = 1f;
+        speed = Random.Range(1.0f, 2.0f);
     }
 
     // Update is called once per frame
