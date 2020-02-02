@@ -13,7 +13,7 @@ public class MonsterSpawner : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        spawnSpeed = 4f;
+        spawnSpeed = 3f;
         spawnAllowed = true;
         time = Time.time;
     }
@@ -28,15 +28,14 @@ public class MonsterSpawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (spawnAllowed && Time.time - time > 30)
+        if (spawnAllowed && Time.time - time < 30)
         {
             spawnAllowed = false;
             Invoke("SpawnMonster", spawnSpeed);
             if (spawnSpeed > 0.3f)
                 spawnSpeed -= 0.1f;
         }
-        Debug.Log(Time.time - time);
-        if (Time.time - time > 40)
+        if (Time.time - time > 35)
         {
             Debug.Log("Hehehe....");
             time = Time.time;
