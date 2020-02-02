@@ -25,9 +25,9 @@ public class HealthBar : MonoBehaviour
         else
             startingHealth = 100;
         currentHealth = startingHealth;
+        bar = transform.Find("Bar");
         setHealth(currentHealth);
         displayHealth();
-        bar = transform.Find("Bar");
     }
 
     public void setSize(float sizeNormalized)
