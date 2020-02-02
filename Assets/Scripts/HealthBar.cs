@@ -9,11 +9,21 @@ public class HealthBar : MonoBehaviour
 
     public Transform bar;
     public TextMeshProUGUI txtHealth;
-    private float startingHealth = 100;
+    private float startingHealth;
     private float currentHealth;
+    private float maxHealth = 100;
+    public bool repairMode;
     private void Start()
     {
+        if (repairMode == true)
+        {
+            startingHealth = 0;
+            setColor(Color.white);
+        }
+        else
+            startingHealth = 100;
         currentHealth = startingHealth;
+        setHealth(currentHealth);
         displayHealth();
         bar = transform.Find("Bar");
     }
@@ -47,7 +57,6 @@ public class HealthBar : MonoBehaviour
 
     public void doDamage(float dmg)
     {
-        Debug.Log(currentHealth);
         if (currentHealth - dmg <= 0)
         {
             setHealth(0);
@@ -57,6 +66,18 @@ public class HealthBar : MonoBehaviour
             setHealth(currentHealth - dmg);
             if (currentHealth <= (startingHealth * 0.25))
                 setColor(Color.red);
+        }
+    }
+    public void doRepair(float repair)
+    {
+        if (currentHealth + repair >= maxHealth)
+        {
+            setHealth(currentHealth + repair);
+            Debug.Log("Ship repaired");
+        }
+        else
+        {
+            setHealth(currentHealth + repair);
         }
     }
 }
