@@ -11,15 +11,20 @@ public class UpgradeBar : MonoBehaviour
     private int maxupgrade = 5;
     private float barState = 0f;
 
-    void Start()
+    private void Start()
     {
         currentUpgrade = startingUpgrade;
         bar = transform.Find("Bar");
-        bar.localScale = new Vector3(0f, 0.54f); // TOFIX
+        //setInitSize();TOFIX -> done but we need to do upgrade for this to work
     }
     public int getCurrentUpgrade()
     {
         return currentUpgrade;
+    }
+
+    public void setInitSize()
+    {
+        bar.localScale = new Vector3(0f, 0.54f);
     }
 
     public void upgradeSize()
@@ -34,9 +39,9 @@ public class UpgradeBar : MonoBehaviour
         if (currentUpgrade + 1 <= maxupgrade)
         {
             Debug.Log("here2");
+            upgradeSize();
             currentUpgrade++;
             barState++;
-            upgradeSize();
         }
     }
 
