@@ -35,7 +35,7 @@ public class MonsterSpawner : MonoBehaviour
             if (spawnSpeed > 0.3f)
                 spawnSpeed -= 0.1f;
         }
-        if (Time.time - time > 35)
+        if (Time.time - time > 37)
         {
             Debug.Log("Hehehe....");
             time = Time.time;
