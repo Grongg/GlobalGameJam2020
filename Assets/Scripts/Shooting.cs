@@ -1,22 +1,24 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class Shooting : MonoBehaviour
 {
     public Transform firepoint;
     public GameObject bulletPrefab;
     private AudioSource shootSound;
-    public KeyCode fireKey;
     public float bulletForce = 20f;
-    // Update is called once per frame
+
+    public bool can_fire = false;
+
     void Start() 
     {
         shootSound = GetComponent<AudioSource>();
     }
     void Update()
     {
-        if (Input.GetKeyDown(fireKey))
+        if (can_fire && Input.GetButtonDown("Fire1"))
         {
             Shoot();
         }

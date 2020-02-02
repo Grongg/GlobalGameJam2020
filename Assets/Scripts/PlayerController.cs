@@ -11,6 +11,7 @@ public class PlayerController : MonoBehaviour
     public GameObject machineGun;
     public GameObject radar;
     public GameObject reactor;
+    public GameObject machineGunColl;
     public HealthBar HealthBar;
     public HealthBar RepairBar;
 
@@ -21,7 +22,7 @@ public class PlayerController : MonoBehaviour
     private CharacterController controller;
     private int state = 0; // 0 for walking, 1 for turret, 2 for repairing hull, 3 for radar, 4 for reactor....
     private BoxCollider hullCollider;
-    private SphereCollider machineGunCollider;
+    private BoxCollider machineGunCollider;
     private BoxCollider radarCollider;
     private BoxCollider reactorCollider;
 
@@ -32,7 +33,7 @@ public class PlayerController : MonoBehaviour
         controller = GetComponent<CharacterController>();
         hullCollider = hull.GetComponent<BoxCollider>();
         reactorCollider = reactor.GetComponent<BoxCollider>();
-//        machineGunCollider = machineGun.GetComponent<SphereCollider>();
+        machineGunCollider = machineGunColl.GetComponent<BoxCollider>();
 //        radarCollider = radar.GetComponent<BoxCollider>();
     }
 
@@ -80,15 +81,17 @@ public class PlayerController : MonoBehaviour
                     anim.SetBool("is_moving", false);
                     anim.SetBool("is_repairing", true);
                     HealthBar.shieldRepair.Play(0);
-                }/*
+                }
                 else if (machineGunCollider.bounds.Contains(transform.position + sprite.transform.TransformDirection(Vector3.right) * 0.7f))
                 {
+                    Debug.Log("aoierhg");
                     state = 1;
                     anim.SetBool("is_moving", false);
                     anim.SetBool("is_fireing", true);
-                    machineGun.GetComponent<MachineGunScript>().control = true;
+                    machineGun.GetComponent<MachineGunMovement>().control = true;
+                    machineGun.GetComponent<Shooting>().can_fire = true;
                 }
-                else if (radarCollider.bounds.Contains(transform.position + sprite.transform.TransformDirection(Vector3.right) * 0.7f))
+                /*else if (radarCollider.bounds.Contains(transform.position + sprite.transform.TransformDirection(Vector3.right) * 0.7f))
                 {
                     state = 3;
                     anim.SetBool("is_moving", false);
@@ -101,12 +104,17 @@ public class PlayerController : MonoBehaviour
                     anim.SetBool("is_repairing", true);
                     RepairBar.shieldRepair.Play(0);
                 }
-            } else if (state != 0) {
-//                machineGun.GetComponent<MachineGunScript>().control = false;
+            } else if (state == 1)
+            {
+                machineGun.GetComponent<MachineGunMovement>().control = false;
+                machineGun.GetComponent<Shooting>().can_fire = false;
+                anim.SetBool("is_fireing", false);
+                state = 0;
+            }
+            else if (state != 0) {
                 anim.SetBool("is_repairing", false);
                 HealthBar.shieldRepair.Stop();
                 RepairBar.shieldRepair.Stop();
-//                anim.SetBool("is_fireing", false);
                 state = 0;
             }
         }

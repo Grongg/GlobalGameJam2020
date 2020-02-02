@@ -8,6 +8,7 @@ public class MachineGunMovement : MonoBehaviour
 
     public Rigidbody2D rb;
     public Camera cam;
+    public bool control = false;
 
     //Vector2 movement;
     Vector2 mousePos;
@@ -24,9 +25,11 @@ public class MachineGunMovement : MonoBehaviour
     void FixedUpdate()
     {
        // rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime);
-
-        Vector2 lookdir = mousePos - rb.position;
-        float angle = Mathf.Atan2(lookdir.y, lookdir.x) * Mathf.Rad2Deg - 90f;
-        rb.rotation = angle;
+       if (control)
+       {
+            Vector2 lookdir = mousePos - rb.position;
+            float angle = Mathf.Atan2(lookdir.y, lookdir.x) * Mathf.Rad2Deg - 90f;
+            rb.rotation = angle;
+       }
     }
 }
