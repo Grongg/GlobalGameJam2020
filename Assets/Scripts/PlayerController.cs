@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 using UnityEngine;
 using System;
 
@@ -38,7 +39,7 @@ public class PlayerController : MonoBehaviour
 
     void repairShield()
     {
-        if (HealthBar.currentHealth == 100)
+        if (HealthBar.currentHealth >= 100)
             return;
         HealthBar.currentHealth += 1f * Time.deltaTime;
         HealthBar.displayHealth();
@@ -52,6 +53,11 @@ public class PlayerController : MonoBehaviour
         RepairBar.currentHealth += 1f * Time.deltaTime;
         RepairBar.displayHealth();
         RepairBar.setSize(RepairBar.currentHealth * 0.01f);
+        if (RepairBar.currentHealth >= 100f)
+        {
+            DataCollector.State = true;
+            SceneManager.LoadScene("EndGameScreen", LoadSceneMode.Single);
+        }
     }
     void Update()
     {
