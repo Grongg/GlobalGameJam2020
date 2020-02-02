@@ -10,7 +10,7 @@ public class PlayerController : MonoBehaviour
     public float rotSpeed = 1.0f;
     public GameObject hull;
     public GameObject machineGun;
-    public GameObject radar;
+    public GameObject up;
     public GameObject reactor;
     public GameObject machineGunColl;
     public HealthBar HealthBar;
@@ -24,7 +24,7 @@ public class PlayerController : MonoBehaviour
     private int state = 0; // 0 for walking, 1 for turret, 2 for repairing hull, 3 for radar, 4 for reactor....
     private BoxCollider hullCollider;
     private BoxCollider machineGunCollider;
-    private BoxCollider radarCollider;
+    private BoxCollider upCollider;
     private BoxCollider reactorCollider;
 
     void Start()
@@ -35,7 +35,7 @@ public class PlayerController : MonoBehaviour
         hullCollider = hull.GetComponent<BoxCollider>();
         reactorCollider = reactor.GetComponent<BoxCollider>();
         machineGunCollider = machineGunColl.GetComponent<BoxCollider>();
-//        radarCollider = radar.GetComponent<BoxCollider>();
+        upCollider = up.GetComponent<BoxCollider>();
     }
 
     void repairShield()
@@ -97,12 +97,12 @@ public class PlayerController : MonoBehaviour
                     machineGun.GetComponent<MachineGunMovement>().control = true;
                     machineGun.GetComponent<Shooting>().can_fire = true;
                 }
-                /*else if (radarCollider.bounds.Contains(transform.position + sprite.transform.TransformDirection(Vector3.right) * 0.7f))
+                else if (upCollider.bounds.Contains(transform.position + sprite.transform.TransformDirection(Vector3.right) * 0.7f))
                 {
                     state = 3;
                     anim.SetBool("is_moving", false);
                     anim.SetBool("is_repairing", true);
-                }*/
+                }
                 else if (reactorCollider.bounds.Contains(transform.position + sprite.transform.TransformDirection(Vector3.right) * 0.7f))
                 {
                     state = 4;
