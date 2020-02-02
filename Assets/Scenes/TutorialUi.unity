@@ -155,7 +155,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -2.77, y: 1.28}
+  m_AnchoredPosition: {x: 1.15, y: 1.28}
   m_SizeDelta: {x: 4.542, y: 7.208}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &185671352
@@ -855,7 +855,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.64, y: -0.8}
+  m_AnchoredPosition: {x: -5.06, y: -3.4}
   m_SizeDelta: {x: 4.542, y: 7.208}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &912180515
@@ -946,7 +946,7 @@ MonoBehaviour:
   m_firstVisibleCharacter: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0.52662957, y: 0.74454427, z: 1.1608801, w: 5.6800833}
+  m_margin: {x: 0.52662957, y: 0.74454427, z: 1.3427744, w: 5.6800833}
   m_textInfo:
     textComponent: {fileID: 912180515}
     characterCount: 49
@@ -1014,7 +1014,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -5.73, y: 1.46}
+  m_AnchoredPosition: {x: -6.01, y: -0.07}
   m_SizeDelta: {x: 4.542, y: 7.208}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1179260081
@@ -1037,7 +1037,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Shield Station:
 
-    interact with it to repair your damaged shield'
+    interact with it with LEFT CLICK to repair your damaged
+    shield'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
   m_sharedMaterial: {fileID: 2164040, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
@@ -1082,7 +1083,7 @@ MonoBehaviour:
   m_enableWordWrapping: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
-  m_firstOverflowCharacterIndex: 36
+  m_firstOverflowCharacterIndex: 33
   m_linkedTextComponent: {fileID: 0}
   m_isLinkedTextComponent: 0
   m_isTextTruncated: 0
@@ -1103,15 +1104,15 @@ MonoBehaviour:
   m_firstVisibleCharacter: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0.52662957, y: 0.74454427, z: 0.9384651, w: 5.6800833}
+  m_margin: {x: 0.52662957, y: 0.74454427, z: 1.8479352, w: 5.6800833}
   m_textInfo:
     textComponent: {fileID: 1179260081}
-    characterCount: 62
+    characterCount: 78
     spriteCount: 0
-    spaceCount: 9
-    wordCount: 10
+    spaceCount: 12
+    wordCount: 13
     linkCount: 0
-    lineCount: 4
+    lineCount: 6
     pageCount: 1
     materialCount: 1
   m_isUsingLegacyAnimationComponent: 0
@@ -1171,7 +1172,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -4.17, y: -1.51}
+  m_AnchoredPosition: {x: -3.42, y: -0.65}
   m_SizeDelta: {x: 4.542, y: 7.208}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1327213297
@@ -1194,7 +1195,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Minigun:
 
-    Press SPACE to shoot'
+    Press RIGHT CLICK to interact and LEFT CLICK to shoot'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
   m_sharedMaterial: {fileID: 2164040, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
@@ -1239,7 +1240,7 @@ MonoBehaviour:
   m_enableWordWrapping: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
-  m_firstOverflowCharacterIndex: -1
+  m_firstOverflowCharacterIndex: 30
   m_linkedTextComponent: {fileID: 0}
   m_isLinkedTextComponent: 0
   m_isTextTruncated: 0
@@ -1263,12 +1264,12 @@ MonoBehaviour:
   m_margin: {x: 0.52662957, y: 0.74454427, z: 0.9384651, w: 5.6800833}
   m_textInfo:
     textComponent: {fileID: 1327213297}
-    characterCount: 29
+    characterCount: 62
     spriteCount: 0
-    spaceCount: 4
-    wordCount: 5
+    spaceCount: 10
+    wordCount: 11
     linkCount: 0
-    lineCount: 2
+    lineCount: 4
     pageCount: 1
     materialCount: 1
   m_isUsingLegacyAnimationComponent: 0
@@ -1485,7 +1486,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -2.4, y: -5.98}
+  m_AnchoredPosition: {x: 0.98, y: -6.19}
   m_SizeDelta: {x: 4.542, y: 7.208}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1446114576
@@ -1643,7 +1644,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -5.74, y: -4.32}
+  m_AnchoredPosition: {x: -5.81, y: -5.28}
   m_SizeDelta: {x: 4.542, y: 7.58}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1535827490
@@ -1666,8 +1667,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Engine:
 
-    interact with it to repair your damaged engine and GET OUT
-    OF HERE!'
+    interact with LEFT CLICK to repair your damaged engine and
+    GET OUT OF HERE!'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
   m_sharedMaterial: {fileID: 2164040, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
@@ -1736,10 +1737,10 @@ MonoBehaviour:
   m_margin: {x: 0.52662957, y: 0.74454427, z: 0.88440907, w: 5.189742}
   m_textInfo:
     textComponent: {fileID: 1535827490}
-    characterCount: 75
+    characterCount: 83
     spriteCount: 0
-    spaceCount: 13
-    wordCount: 14
+    spaceCount: 14
+    wordCount: 15
     linkCount: 0
     lineCount: 5
     pageCount: 1
@@ -2000,8 +2001,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2005476638}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.018, y: -0.013, z: 0}
-  m_LocalScale: {x: 2.0100138, y: 1.8407993, z: 1}
+  m_LocalPosition: {x: 0.028, y: -0.026, z: 0}
+  m_LocalScale: {x: 1.4700181, y: 1.5027336, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 1
@@ -2052,7 +2053,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -2.52, y: -4.52}
+  m_AnchoredPosition: {x: -2.03, y: -3.48}
   m_SizeDelta: {x: 4.542, y: 7.208}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2104018768
