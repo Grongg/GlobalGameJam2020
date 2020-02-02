@@ -146,12 +146,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5cfbfa9ed998f1d4693b9926b91b57e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
+  speed: 6
   rotSpeed: 1
   hull: {fileID: 0}
   machineGun: {fileID: 0}
   radar: {fileID: 0}
   reactor: {fileID: 0}
+  machineGunColl: {fileID: 0}
+  HealthBar: {fileID: 0}
+  RepairBar: {fileID: 0}
 --- !u!143 &3679488830885429362
 CharacterController:
   m_ObjectHideFlags: 0
