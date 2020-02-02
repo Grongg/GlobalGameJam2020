@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 using UnityEngine;
 
 public class ShieldHandler : MonoBehaviour
@@ -20,5 +21,12 @@ public class ShieldHandler : MonoBehaviour
         shieldDamaged = GetComponent<AudioSource>();
         //healthBar.displayHealth();
 //        repairBar.doRepair(1);
+    }
+    private void Update()
+    {
+        if (healthBar.getHealth() == 0)
+        {
+            SceneManager.LoadScene("EndGameScreen", LoadSceneMode.Single);
+        }
     }
 }

@@ -12,11 +12,13 @@ public class ScoreHandler : MonoBehaviour
     private void Start()
     {
         currentScore = startingScore;
+        DataCollector.Score = currentScore;
         displayScore();
     }
     public void setScore(int score)
     {
         currentScore = score;
+        DataCollector.Score = currentScore;
         displayScore();
     }
 
@@ -33,12 +35,14 @@ public class ScoreHandler : MonoBehaviour
     public void resetScore()
     {
         setScore(0);
+        DataCollector.Score = currentScore;
         displayScore();
     }
 
     public void addPoints(int points)
     {
         currentScore += points;
+        DataCollector.Score += points;
         displayScore();
     }
 }

@@ -5,6 +5,7 @@ using UnityEngine;
 public class RepairEngine : MonoBehaviour
 {
     public HealthBar repairBar;
+    private bool state = false;
     private void OnTriggerEnter2D(Collider2D collision)
     {
         Debug.Log("test");
@@ -16,11 +17,10 @@ public class RepairEngine : MonoBehaviour
 
     void Start()
     {
-        
+        DataCollector.State = state;
     }
 
     void Update()
     {
-        
     }
 }
