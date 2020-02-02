@@ -12,7 +12,7 @@ public class MonsterSpawner : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        spawnSpeed = 1f;
+        spawnSpeed = 4f;
         spawnAllowed = true;
     }
 
@@ -30,8 +30,8 @@ public class MonsterSpawner : MonoBehaviour
         {
             spawnAllowed = false;
             Invoke("SpawnMonster", spawnSpeed);
-            if (spawnSpeed > 1.0f)
-                spawnSpeed -= 1f;
+            if (spawnSpeed > 0.3f)
+                spawnSpeed -= 0.1f;
         }
     }
 }
