@@ -42,7 +42,7 @@ public class PlayerController : MonoBehaviour
     {
         if (HealthBar.currentHealth >= 100)
             return;
-        HealthBar.currentHealth += 1f * Time.deltaTime;
+        HealthBar.currentHealth += 3f * Time.deltaTime;
         HealthBar.displayHealth();
         HealthBar.setSize(HealthBar.currentHealth * 0.01f);
         if (HealthBar.currentHealth >= (HealthBar.startingHealth * 0.25))
@@ -51,7 +51,7 @@ public class PlayerController : MonoBehaviour
 
     void repairEngine()
     {
-        RepairBar.currentHealth += 1f * Time.deltaTime;
+        RepairBar.currentHealth += 2f * Time.deltaTime;
         RepairBar.displayHealth();
         RepairBar.setSize(RepairBar.currentHealth * 0.01f);
         if (RepairBar.currentHealth >= 100f)
