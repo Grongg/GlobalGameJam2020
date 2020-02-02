@@ -9,12 +9,14 @@ public class HealthBar : MonoBehaviour
 
     public Transform bar;
     public TextMeshProUGUI txtHealth;
-    private float startingHealth;
-    private float currentHealth;
+    public AudioSource shieldRepair;
+    public float startingHealth;
+    public float currentHealth;
     private float maxHealth = 100;
     public bool repairMode;
     private void Start()
     {
+        shieldRepair = GetComponent<AudioSource>();
         if (repairMode == true)
         {
             startingHealth = 0;

@@ -11,6 +11,7 @@ public class PlayerController : MonoBehaviour
     public GameObject machineGun;
     public GameObject radar;
     public GameObject reactor;
+    public HealthBar HealthBar;
 
     private Vector2 moveDirection;
     private GameObject sprite;
@@ -29,31 +30,39 @@ public class PlayerController : MonoBehaviour
         anim = sprite.GetComponent<Animator>();
         controller = GetComponent<CharacterController>();
         hullCollider = hull.GetComponent<BoxCollider>();
-        machineGunCollider = machineGun.GetComponent<SphereCollider>();
-        radarCollider = radar.GetComponent<BoxCollider>();
-        reactorCollider = reactor.GetComponent<BoxCollider>();
+//        machineGunCollider = machineGun.GetComponent<SphereCollider>();
+//        radarCollider = radar.GetComponent<BoxCollider>();
+//        reactorCollider = reactor.GetComponent<BoxCollider>();
+    }
+
+    void repairShield()
+    {
+        if (HealthBar.currentHealth == 100)
+            return;
+        HealthBar.currentHealth += 1 * Time.deltaTime;
+        HealthBar.displayHealth();
+        HealthBar.setSize(HealthBar.currentHealth * 0.01f);
+        if (HealthBar.currentHealth >= (HealthBar.startingHealth * 0.25))
+                HealthBar.setColor(Color.green);
     }
 
     void Update()
     {
         if (Input.GetAxis("Horizontal") != 0 && Input.GetAxis("Vertical") != 0)
-        {
             actualSpeed = speed / (float)Math.Sqrt(2);
-        }
         else
-        {
             actualSpeed = speed;
-        }
         if (state == 0) {
             moveDirection = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
             controller.Move(moveDirection * actualSpeed * Time.deltaTime);
             if (moveDirection.x != 0 || moveDirection.y != 0) {
                 anim.SetBool("is_moving", true);
                 sprite.transform.rotation = Quaternion.Euler(0, 0, Vector2.SignedAngle(Vector2.right, moveDirection));
-            } else {
+            } else
                 anim.SetBool("is_moving", false);
-            }
         }
+        else if (state == 2)
+            repairShield();
         if (Input.GetButtonDown("Fire2")) {
             if (state == 0) {
                 if (hullCollider.bounds.Contains(transform.position + sprite.transform.TransformDirection(Vector3.right) * 0.7f))
@@ -61,7 +70,8 @@ public class PlayerController : MonoBehaviour
                     state = 2;
                     anim.SetBool("is_moving", false);
                     anim.SetBool("is_repairing", true);
-                }
+                    HealthBar.shieldRepair.Play(0);
+                }/*
                 else if (machineGunCollider.bounds.Contains(transform.position + sprite.transform.TransformDirection(Vector3.right) * 0.7f))
                 {
                     state = 1;
@@ -80,11 +90,12 @@ public class PlayerController : MonoBehaviour
                     state = 4;
                     anim.SetBool("is_moving", false);
                     anim.SetBool("is_repairing", true);
-                }
+                }*/
             } else if (state != 0) {
-                machineGun.GetComponent<MachineGunScript>().control = false;
+//                machineGun.GetComponent<MachineGunScript>().control = false;
                 anim.SetBool("is_repairing", false);
-                anim.SetBool("is_fireing", false);
+                HealthBar.shieldRepair.Stop();
+//                anim.SetBool("is_fireing", false);
                 state = 0;
             }
         }
