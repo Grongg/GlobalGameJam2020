@@ -8,12 +8,13 @@ public class MonsterAI : MonoBehaviour
     public Transform[] waypoint;
     private AudioSource DeathSound;
     public ScoreHandler score;
-    // Start is called before the first frame update
+    private Animator anim;
 
     void Start()
     {
         DeathSound = GetComponent<AudioSource>();
         speed = Random.Range(1.0f, 2.0f);
+        anim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -27,6 +28,7 @@ public class MonsterAI : MonoBehaviour
         if (collision.gameObject.tag == "Bullet")
         {
             Destroy(collision.gameObject);
+            anim.SetBool("is_dead", true);
             DeathSound.Play(0); // Not working to fix doesnt work because object is destroyed and he no liky
             score.addPoints(100);
             Destroy(this);
