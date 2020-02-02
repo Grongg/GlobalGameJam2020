@@ -7,7 +7,7 @@ public class UpgradeBar : MonoBehaviour
     public Transform bar;
 
     private int startingUpgrade = 0;
-    private int currentUpgrade = 0;
+    private int currentUpgrade;
     private int maxupgrade = 5;
     private float barState = 0f;
 
@@ -15,7 +15,7 @@ public class UpgradeBar : MonoBehaviour
     {
         currentUpgrade = startingUpgrade;
         bar = transform.Find("Bar");
-        bar.localScale = new Vector3(0f, 0.54f); // TOFIX
+        bar.localScale = new Vector3(0f, 0.54f);
     }
     public int getCurrentUpgrade()
     {

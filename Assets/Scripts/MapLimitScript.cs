@@ -19,7 +19,7 @@ public class MapLimitScript : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         Debug.Log(collision.gameObject.tag + " out of map");
-        if (collision.gameObject.tag == "Bullet" || collision.gameObject.tag == "Monster")
+        if (collision.gameObject.tag == "Bullet")
         {
             Destroy(collision.gameObject);
         }
