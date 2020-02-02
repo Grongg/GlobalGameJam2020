@@ -17,6 +17,7 @@ public class PlayerController : MonoBehaviour
     public HealthBar RepairBar;
     public UpgradeBar upBar;
     public ScoreHandler score;
+    public Shooting shoot;
 
     private Vector2 moveDirection;
     private GameObject sprite;
@@ -112,6 +113,7 @@ public class PlayerController : MonoBehaviour
                         state = 5;
                         anim.SetBool("is_moving", false);
                         anim.SetBool("is_repairing", true);
+                        shoot.firerate = 0.3f;
                     }
                     else if (score.getScore() >= 1000 && upBar.getCurrentUpgrade() == 2)
                     {
@@ -119,6 +121,7 @@ public class PlayerController : MonoBehaviour
                         state = 5;
                         anim.SetBool("is_moving", false);
                         anim.SetBool("is_repairing", true);
+                        shoot.firerate = 0.2f;
                     }
                     else if (score.getScore() >= 2000 && upBar.getCurrentUpgrade() == 3)
                     {
@@ -126,6 +129,7 @@ public class PlayerController : MonoBehaviour
                         state = 5;
                         anim.SetBool("is_moving", false);
                         anim.SetBool("is_repairing", true);
+                        shoot.firerate = 0.15f;
                     }
                     else if (score.getScore() >= 4500 && upBar.getCurrentUpgrade() == 4)
                     {
@@ -133,6 +137,7 @@ public class PlayerController : MonoBehaviour
                         state = 5;
                         anim.SetBool("is_moving", false);
                         anim.SetBool("is_repairing", true);
+                        shoot.firerate = 0.1f;
                     }
                 }
                 else if (reactorCollider.bounds.Contains(transform.position + sprite.transform.TransformDirection(Vector3.right) * 0.7f))
@@ -160,7 +165,7 @@ public class PlayerController : MonoBehaviour
         {
             timer += Time.deltaTime;
             Debug.Log(timer);
-            if (timer >= 4)
+            if (timer >= 3)
             {
                 state = 0;
                 anim.SetBool("is_repairing", false);
