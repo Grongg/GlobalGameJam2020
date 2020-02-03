@@ -6,3 +6,5 @@ Collaborateur:
 - Alexandru Burla     alexandru.burla@epitech.eu
 - Alexandre Lefevre   alexandre1.lefevre@epitech.eu
 - Lionel De Sousa     lionel.de-sousa@epitech.eu
+
+https://trello.com/b/1Suzct7P/global-gru-jam
